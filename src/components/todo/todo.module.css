@@ -1,0 +1,33 @@
+.wrapper {
+}
+
+.header {
+  margin-right: 20px;
+  font-size: 20px;
+}
+
+.content {
+  background-color: darkcyan;
+  width: 230px;
+  height: 60px;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+}
+.title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.description {
+  color: white;
+}
+.button {
+  padding-top: 30px;
+  align-items: flex-end;
+}
+button {
+  padding: 5px;
+  background-color: blueviolet;
+}
