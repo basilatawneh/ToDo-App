@@ -7,17 +7,24 @@ import ToDoForm from './components/todo-form/todo-form';
 import { useState } from 'react';
 function App() {
   const [items, setItems] = useState([]);
+  const [searchValue, setSearchValue] = useState('')
+
   const addHandler = (toDoItem)=> {
     setItems((prev) => {
       return [...prev, toDoItem];
     })
   }
+
+  const searchHandler = (value) => {
+    setSearchValue(value);
+  }
+
   return (
     <div>
        <Nav />
-      <Search />
+      <Search searchValue={searchValue} searchHandler={searchHandler}  />
       <ToDoForm addHandler={addHandler}/>
-      <TodoList items={items} />
+      <TodoList items={items} searchValue={searchValue} />
     </div>
   );
 }
