@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ToDoForm = (props) => {
   const intialValues = {
@@ -6,7 +6,16 @@ const ToDoForm = (props) => {
     description: '',
     date: ''
   }
+  
   const [inputs, setInputs] = useState(intialValues);
+  const [validForm, setValidForm] = useState(false);
+
+  useEffect(()=>{
+    const validTitle = inputs.title.length > 6;
+    const validDescription = inputs.description.length > 6;
+    const validDate = inputs.date.length > 0;
+    setValidForm(validTitle && validDescription &&validDate)
+  }, [inputs])
 
   const onChangeHandler = (event) => {
     const value = event.target.value;
@@ -43,7 +52,7 @@ const ToDoForm = (props) => {
           <label>date</label>
           <input type='date' value={inputs.date} name='date' onChange={onChangeHandler}/>
         </div>
-        <button>Add to the todoList</button>
+        <button disabled={!validForm}>Add to the todoList</button>
       </form>
     </div>
   )
