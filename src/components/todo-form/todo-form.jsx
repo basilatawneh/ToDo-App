@@ -6,15 +6,15 @@ const ToDoForm = (props) => {
     description: '',
     date: ''
   }
-  
+
   const [inputs, setInputs] = useState(intialValues);
   const [validForm, setValidForm] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     const validTitle = inputs.title.length > 6;
     const validDescription = inputs.description.length > 6;
     const validDate = inputs.date.length > 0;
-    setValidForm(validTitle && validDescription &&validDate)
+    setValidForm(validTitle && validDescription && validDate)
   }, [inputs])
 
   const onChangeHandler = (event) => {
@@ -46,11 +46,11 @@ const ToDoForm = (props) => {
         </div>
         <div>
           <label>description</label>
-          <input type='text' value={inputs.description} name='description' onChange={onChangeHandler}/>
+          <input type='text' value={inputs.description} name='description' onChange={onChangeHandler} />
         </div>
         <div>
           <label>date</label>
-          <input type='date' value={inputs.date} name='date' onChange={onChangeHandler}/>
+          <input type='date' value={inputs.date} name='date' onChange={onChangeHandler} />
         </div>
         <button disabled={!validForm}>Add to the todoList</button>
       </form>
